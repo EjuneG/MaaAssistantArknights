@@ -664,11 +664,27 @@
         ]
     },
     "Sami@Roguelike@StageCombatOps": {
-        "templThreshold": 0.95
+        "templThreshold": 0.95,
+        "next": [
+            "Sami@Roguelike@CheckFoldartalCombatOps",
+            "Sami@Roguelike@Stages#next"
+        ]
     },
     "Sami@Roguelike@StageCombatOpsAI6": {
         "templThreshold": 0.95,
         "baseTask": "Sami@Roguelike@Stage",
+        "next": [
+            "Sami@Roguelike@CheckFoldartalCombatOps",
+            "Sami@Roguelike@Stages#next"
+        ]
+    },
+    "Sami@Roguelike@CheckFoldartalCombatOps": {
+        "baseTask": "Sami@Roguelike@StageCombatOpsAI6",
+        "template": [
+            "Sami@Roguelike@StageCombatOps.png",
+            "Sami@Roguelike@StageCombatOpsAI6.png"
+        ],
+        "action": "DoNothing",
         "next": [
             "Sami@Roguelike@StageCombatOpsEnter",
             "Sami@Roguelike@StageEmergencyOpsEnter",
@@ -683,6 +699,15 @@
         "templThreshold": 0.85,
         "exceededNext": ["RoguelikeControlTaskPlugin-Stop"],
         "next": [
+            "Sami@Roguelike@CheckFoldartalDreadfulFoe5",
+            "Sami@Roguelike@Stages#next"
+        ]
+    },
+    "Sami@Roguelike@CheckFoldartalDreadfulFoe5": {
+        "baseTask": "Sami@Roguelike@StageDreadfulFoe-5",
+        "template": ["Sami@Roguelike@StageDreadfulFoe-5.png"],
+        "action": "DoNothing",
+        "next": [
             "Sami@Roguelike@StageDreadfulFoe-5Enter",
             "Sami@Roguelike@StageDreadfulFoeEnter",
             "Sami@Roguelike@StageEmergencyOpsEnter",
@@ -695,11 +720,27 @@
     },
     "Sami@Roguelike@StageDreadfulFoeEnter": {},
     "Sami@Roguelike@StageEmergencyOps": {
-        "templThreshold": 0.95
+        "templThreshold": 0.95,
+        "next": [
+            "Sami@Roguelike@CheckFoldartalEmergencyOps",
+            "Sami@Roguelike@Stages#next"
+        ]
     },
     "Sami@Roguelike@StageEmergencyOpsAI6": {
         "templThreshold": 0.95,
         "baseTask": "Sami@Roguelike@Stage",
+        "next": [
+            "Sami@Roguelike@CheckFoldartalEmergencyOps",
+            "Sami@Roguelike@Stages#next"
+        ]
+    },
+    "Sami@Roguelike@CheckFoldartalEmergencyOps": {
+        "baseTask": "Sami@Roguelike@StageEmergencyOpsAI6",
+        "template": [
+            "Sami@Roguelike@StageEmergencyOps.png",
+            "Sami@Roguelike@StageEmergencyOpsAI6.png"
+        ],
+        "action": "DoNothing",
         "next": [
             "Sami@Roguelike@StageEmergencyOpsEnter",
             "Sami@Roguelike@StageCombatOpsEnter",
@@ -711,19 +752,38 @@
         "Doc": "先行一步，拒绝可以获取2希望",
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.95,
-        "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
+        "next": ["Sami@Roguelike@CheckFoldartalEmergencyTransportation", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageEmergencyTransportationAI6": {
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.95,
+        "next": ["Sami@Roguelike@CheckFoldartalEmergencyTransportation", "Sami@Roguelike@Stages#next"]
+    },
+    "Sami@Roguelike@CheckFoldartalEmergencyTransportation": {
+        "baseTask": "Sami@Roguelike@StageEmergencyTransportationAI6",
+        "template": [
+            "Sami@Roguelike@StageEmergencyTransportation.png",
+            "Sami@Roguelike@StageEmergencyTransportationAI6.png"
+        ],
+        "action": "DoNothing",
         "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageEncounter": {
-        "templThreshold": 0.96
+        "templThreshold": 0.96,
+        "next": ["Sami@Roguelike@CheckFoldartalEncounter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageEncounterAI6": {
         "templThreshold": 0.96,
         "baseTask": "Sami@Roguelike@Stage",
+        "next": ["Sami@Roguelike@CheckFoldartalEncounter", "Sami@Roguelike@Stages#next"]
+    },
+    "Sami@Roguelike@CheckFoldartalEncounter": {
+        "baseTask": "Sami@Roguelike@StageEncounterAI6",
+        "template": [
+            "Sami@Roguelike@StageEncounter.png",
+            "Sami@Roguelike@StageEncounterAI6.png"
+        ],
+        "action": "DoNothing",
         "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageEncounterEnter": {},
@@ -752,6 +812,12 @@
         "Doc": "凶戾的预感",
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.9,
+        "next": ["Sami@Roguelike@CheckFoldartalFerociousPresage", "Sami@Roguelike@Stages#next"]
+    },
+    "Sami@Roguelike@CheckFoldartalFerociousPresage": {
+        "baseTask": "Sami@Roguelike@StageFerociousPresage",
+        "template": ["Sami@Roguelike@StageFerociousPresage.png"],
+        "action": "DoNothing",
         "next": ["Sami@Roguelike@StageFerociousPresageEnter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageFerociousPresageEnter": {
@@ -761,18 +827,37 @@
         "Doc": "骰子关卡",
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.95,
-        "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
+        "next": ["Sami@Roguelike@CheckFoldartalGambling", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageGamblingAI6": {
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.95,
+        "next": ["Sami@Roguelike@CheckFoldartalGambling", "Sami@Roguelike@Stages#next"]
+    },
+    "Sami@Roguelike@CheckFoldartalGambling": {
+        "baseTask": "Sami@Roguelike@StageGamblingAI6",
+        "template": [
+            "Sami@Roguelike@StageGambling.png",
+            "Sami@Roguelike@StageGamblingAI6.png"
+        ],
+        "action": "DoNothing",
         "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageMysteriousPresage": {
         "Doc": "诡秘的预感",
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.9,
-        "next": ["Sami@Roguelike@StageMysteriousPresageEnter", "#self"]
+        "next": ["Sami@Roguelike@CheckFoldartalMysteriousPresage", "#self"]
+    },
+    "Sami@Roguelike@CheckFoldartalMysteriousPresage": {
+        "baseTask": "Sami@Roguelike@StageMysteriousPresage",
+        "template": ["Sami@Roguelike@StageMysteriousPresage.png"],
+        "action": "DoNothing",
+        "next": [
+            "Sami@Roguelike@StageMysteriousPresageEnter",
+            "Sami@Roguelike@StageMysteriousPresage",
+            "Sami@Roguelike@Stages#next"
+        ]
     },
     "Sami@Roguelike@StageMysteriousPresageEnter": {
         "baseTask": "Sami@Roguelike@StageEnter",
@@ -816,11 +901,21 @@
         "next": ["Sami@Roguelike@StageEncounterOption#next"]
     },
     "Sami@Roguelike@StageTrader": {
-        "templThreshold": 0.95
+        "templThreshold": 0.95,
+        "next": ["Sami@Roguelike@CheckFoldartalTrader", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageTraderAI6": {
         "templThreshold": 0.95,
         "baseTask": "Sami@Roguelike@Stage",
+        "next": ["Sami@Roguelike@CheckFoldartalTrader", "Sami@Roguelike@Stages#next"]
+    },
+    "Sami@Roguelike@CheckFoldartalTrader": {
+        "baseTask": "Sami@Roguelike@StageTraderAI6",
+        "template": [
+            "Sami@Roguelike@StageTrader.png",
+            "Sami@Roguelike@StageTraderAI6.png"
+        ],
+        "action": "DoNothing",
         "next": ["Sami@Roguelike@StageTraderEnter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageTraderEnter": {},
@@ -1004,11 +1099,20 @@
         "Doc": "失与得",
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.95,
-        "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
+        "next": ["Sami@Roguelike@CheckFoldartalWindAndRain", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@StageWindAndRainAI6": {
         "baseTask": "Sami@Roguelike@Stage",
         "templThreshold": 0.95,
+        "next": ["Sami@Roguelike@CheckFoldartalWindAndRain", "Sami@Roguelike@Stages#next"]
+    },
+    "Sami@Roguelike@CheckFoldartalWindAndRain": {
+        "baseTask": "Sami@Roguelike@StageWindAndRainAI6",
+        "template": [
+            "Sami@Roguelike@StageWindAndRain.png",
+            "Sami@Roguelike@StageWindAndRainAI6.png"
+        ],
+        "action": "DoNothing",
         "next": ["Sami@Roguelike@StageEncounterEnter", "Sami@Roguelike@Stages#next"]
     },
     "Sami@Roguelike@Stages": {
